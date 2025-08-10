@@ -5,6 +5,7 @@ function Hero () {
             <p>Staying on track on mulitple subscriptions, bills and membership can be really tiring. </p>
             <p>SubChck deliver a digital solution and it's easy and intuitive.</p>
                 
+<<<<<<< HEAD
             <section className="hero-content">
                 <div className="card">
                     <div className="card-text">
@@ -48,6 +49,15 @@ function Hero () {
                     </div>
                     </div>
 
+=======
+            <section>
+                <p1 className="second-paragraph">
+                    this is an example of paragraph
+                </p1>
+                <img src="src/assets/sampleImage.jpg" alt="Bill management services image"/>
+                <button className ="buttons">View plans</button>
+                <button className ="buttons">Find out more</button>
+>>>>>>> 0c0ad2682a318ae6eeabc7ae56c354a47761c893
             </section>
 
         

@@ -8,7 +8,11 @@
     background: #642B73;
     background: -webkit-linear-gradient(to right, #C6426E, #642B73);
     background: linear-gradient(to right, #C6426E, #642B73);
+<<<<<<< HEAD
     height: 100%;
+=======
+    height: 100%; /*Should remain same color for whole page */
+>>>>>>> 0c0ad2682a318ae6eeabc7ae56c354a47761c893
 }
 
 h1 {
@@ -93,6 +97,7 @@ img {
     flex-shrink: 0;
 }
 
+<<<<<<< HEAD
 .card-text {
     flex: 1;
     text-align: left;
@@ -234,3 +239,64 @@ img {
     display: inline;
 }
 
+=======
+.buttons {
+    margin-bottom: auto;
+    border: 2px solid;
+    border-radius: 10%;
+    padding: 12px 24px;
+    row-gap: 10px;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 24px 80px;
+    min-height: 80vh;
+    color: #f9f9f9;
+    text-align: center;
+}
+
+.features h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background-clip: text;
+}
+
+.features-content {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 10%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    opacity: 0.9;
+    
+}
+
+.feature h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background-clip: text;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.feature p {
+    font-size: 1.5rem;
+    font-family: "Fira Sans", sans-serif;
+}
+>>>>>>> 0c0ad2682a318ae6eeabc7ae56c354a47761c893
