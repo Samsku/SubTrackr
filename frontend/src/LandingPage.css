@@ -59,3 +59,46 @@ ul li {
     list-style: none;
     display: inline;
 }
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 24px 80px;
+    min-height: 80vh;
+    color: #f9f9f9;
+    text-align: center;
+  }
+
+.hero h1 {
+     font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    font-family: "Fira Sans", sans-serif;
+}
+
+img {
+    width: 35%;
+    height: auto;
+    padding: 40px, 0, 40px, 0;
+    margin: 70px auto 0 250px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    opacity: 0.9;
+}
+
+.buttons {
+    margin-bottom: auto;
+    border: 2px solid;
+    border-radius: 10%;
+    padding: 12px 24px;
+    row-gap: 10px;
+
+}
