@@ -10,8 +10,8 @@ function Hero () {
                     this is an example of paragraph
                 </p1>
                 <img src="src/assets/sampleImage.jpg" alt="Bill management services image"/>
-                <onclick button className ="buttons">View plans</onclick>
-                <onclick button className ="buttons">Find out more</onclick>
+                <button className ="buttons">View plans</button>
+                <button className ="buttons">Find out more</button>
             </section>
 
         
