@@ -32,7 +32,7 @@ app.post('/user/signin',async (req,res)=>{
 })
 
 app.post('/user/login', async (req,res)=>{
-    
+    console.log('hello')
   try{
         
     
@@ -41,12 +41,14 @@ app.post('/user/login', async (req,res)=>{
          await user.save()
       res.send({user,token})
   }catch(e){
+console.log('hello')
     res.status(404).send(e)
   }
 
 })
 
 app.post('/bill', auth , async (req,res)=>{
+  
   console.log('hello')
   try{
         const bill = new  Bill({
