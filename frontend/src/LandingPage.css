@@ -4,15 +4,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --purple-dark: #4b1e68;
+    --purple-light: #7f3fbf;
+    --text-light: #f9f9f9;
+    --bg-glass: rgba(255, 255, 255, 0.1);
+    --border-glass: rgba(255, 255, 255, 0.2);
+}
+
 .landing-page {
     background: #642B73;
     background: -webkit-linear-gradient(to right, #C6426E, #642B73);
     background: linear-gradient(to right, #C6426E, #642B73);
-<<<<<<< HEAD
     height: 100%;
-=======
-    height: 100%; /*Should remain same color for whole page */
->>>>>>> 0c0ad2682a318ae6eeabc7ae56c354a47761c893
 }
 
 h1 {
@@ -37,6 +41,7 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #eee;
     user-select: none;
+    
 }
   
 .navbar a {
@@ -62,139 +67,260 @@ ul li {
     list-style: none;
     display: inline;
 }
-
+  
 .hero {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    padding: 120px 24px 80px;
+    padding: 100px 40px;
+    gap: 60px;
+    color: var(--text-light);
+    background: #642B73;
+    background: -webkit-linear-gradient(to right, #C6426E, #642B73);
+    background: linear-gradient(to right, #C6426E, #642B73);
     min-height: 80vh;
-    color: #f9f9f9;
-    text-align: center;
-  }
-
-.hero h1 {
-     font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 24px;
-    background-clip: text;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    font-family: "Fira Sans", sans-serif;
-}
-
-img {
-    width: 100%;
-    max-width: 400px;
-    height: 400px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    opacity: 0.9;
-    flex-shrink: 0;
-}
-
-<<<<<<< HEAD
-.card-text {
-    flex: 1;
+    font-family: 'Fira Sans', sans-serif;
     text-align: left;
 }
-
-.card-text p {
-    margin-bottom: 15px;
-    line-height: 1.6;
+  
+.hero-text {
+    flex: 1 1 400px;
+    max-width: 600px;
 }
+  
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: 35px;
+}
+  
+.hero-text p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+  
 .button-container {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
 }
-.buttons {
-    border: 2px solid rgba(255, 255, 255, 0.3);
+  
+.btn-primary,
+.btn-secondary {
+    padding: 14px 32px;
+    font-size: 1.1rem;
     border-radius: 8px;
-    padding: 12px 24px;
-    background-color: #642B73;
-    color: #f9f9f9;
-    font-family: "Fira Sans", sans-serif;
+    border: none;
     cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+}
+  
+.btn-primary {
+    background-color: var(--text-light);
+    color: var(--purple-dark);
+}
+  
+.btn-primary:hover {
+    background-color: #ffffffcc;
+}
+  
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+}
+  
+.btn-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--purple-dark);
+}
+  
+.hero-image {
+    flex: 1 1 350px;
+    max-width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+}
+  
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    opacity: 0.95;
+}
+  
+.features {
+    background: linear-gradient(90deg, #C6426E 0%, #642B73 100%);
+    color: #f0f0f0;
+    padding: 100px 24px;
+    min-height: 80vh;
+    font-family: 'Fira Sans', sans-serif;
+    text-align: center;
+  }
+  
+  .features > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: 1.5px;
+    margin-top: -50px;
+  }
+  
+  .features-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .feature {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px 24px;
+    width: 300px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .feature h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffe;
+  }
+  
+  .feature p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ddd;
+    opacity: 0.85;
+  }
+  
+  @media (max-width: 768px) {
+    .features-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .feature {
+      width: 90%;
+      max-width: 400px;
+    }
+  }
+
+#pricing-section {
+    background: inherit;
+    color: #f0f0f0;
+    padding: 100px 24px;
+    min-height: 80vh;
+    width: 100%;
+    font-family: 'Fira Sans', sans-serif;
+    text-align: center;
+}
+
+#pricing-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: 1.5px;
+}
+
+#pricing-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    color: #eee;
+    font-family: 'Fira Sans', sans-serif;
+    text-align: center;
+}
+
+.pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    width: 300px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card button:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    background-color: #1fc6bbcc;
+    animation: pulse 1s infinite;
     transition: all 0.3s ease;
 }
 
-.hero-content {
+
+
+.pricing-card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+
+
+.pricing-card ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-left: 0;
+    list-style: none;
     width: 100%;
+    gap: 10px;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    width: 90%;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 40px auto;
-    font-size: 1.2rem;
-    font-family: "Fira Sans", sans-serif;
+.pricing-card ul li {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 30px;
-}
-.pricing-container{
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-}
-.pricing-container-basic {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    align-items: left;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    width: 90%;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 40px auto;
-}
-.pricing-container-premium {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    align-items: right;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    width: 90%;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 40px auto;
-}
-
-.pricing-container-basic p, .pricing-container-premium p {
-    font-size: 1.1rem;
-    font-family: "Fira Sans", sans-serif;
-    margin: 2px 0;
-    text-align: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.3;
+    width: 100%;
 }
 
 .footer {
@@ -203,14 +329,14 @@ img {
     padding: 20px 24px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row-reverse;
+    font-family: 'Fira Sans', sans-serif;
 }
 .footer p {
     margin: 0;
     font-size: 0.9rem;
     margin-right: 10px;
-
 }
 .footer-links {
     display: flex;
@@ -229,6 +355,8 @@ img {
 .footer-links a:hover {
     color: #C6426E;
     border-bottom: 2px solid #C6426E;
+    animation: pulse 1s infinite;
+    transition: all 0.3s ease;
 }
 .footer-links a.logo {
     font-weight: 700;
@@ -239,64 +367,3 @@ img {
     display: inline;
 }
 
-=======
-.buttons {
-    margin-bottom: auto;
-    border: 2px solid;
-    border-radius: 10%;
-    padding: 12px 24px;
-    row-gap: 10px;
-}
-
-.features {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 120px 24px 80px;
-    min-height: 80vh;
-    color: #f9f9f9;
-    text-align: center;
-}
-
-.features h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 24px;
-    background-clip: text;
-}
-
-.features-content {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 24px;
-
-}
-
-.feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 24px;
-    border-radius: 10%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    opacity: 0.9;
-    
-}
-
-.feature h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    background-clip: text;
-    font-family: "Ubuntu", sans-serif;
-}
-
-.feature p {
-    font-size: 1.5rem;
-    font-family: "Fira Sans", sans-serif;
-}
->>>>>>> 0c0ad2682a318ae6eeabc7ae56c354a47761c893
