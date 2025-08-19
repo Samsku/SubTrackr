@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 require('./DB/mongoose')
 const User = require('./model/user')
 const port = process.env.PORT || 3000
@@ -7,6 +8,7 @@ const auth = require('./middleware/auth')
 const Bill = require('./model/bills')
 
 app.use(express.json())
+app.use(cors())
 
 
 app.get('/home',(req,res)=>{
@@ -77,6 +79,20 @@ app.get('/bill/me', auth, async (req,res)=>{
     }catch(e){
       res.status(400).send(e)
     }
+})
+app.delete('/bill/:id', auth, async(req, res)=>{
+  try{
+    const bill = await Bill.findOneAndDelete({
+      _id: req.params.id,
+      owner: req.user._id
+    });
+    if(!bill){
+      return res.status(404).send();
+    }
+    res.send(bill);
+  }catch(e){
+    res.status(400).send(e)
+  }
 })
 
 app.listen((port),()=>{

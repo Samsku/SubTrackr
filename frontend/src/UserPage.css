@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple-dark: #4b1e68;
+    --purple-light: #7f3fbf;
+    --text-light: #f9f9f9;
+    --bg-glass: rgba(255, 255, 255, 0.1);
+    --border-glass: rgba(255, 255, 255, 0.2);
+}
+
+.user-page {
+    background: #642B73;
+    background: -webkit-linear-gradient(to right, #C6426E, #642B73);
+    background: linear-gradient(to right, #C6426E, #642B73);
+    height: 100%;
+}
+
+h1 {
+    font-family: "Ubuntu", sans-serif;
+    color: #f9f9f9;
+    font-size: 2rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #eee;
+    user-select: none;
+    
+}
+  
+.navbar a {
+    color: #eee;
+    text-decoration: none;
+    margin-left: 24px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #C6426E;
+    border-bottom: 2px solid #C6426E;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+}
+ul li {
+    list-style: none;
+    display: inline;
+}
+
+main {
+    padding-top: 100px;
+    padding: 100px 40px;
+    min-height: 100vh;
+    color: var(--text-light);
+    text-align: center;
+}
+.dashboard{
+    width: 500x;
+    min-width: 500px;
+    height: 900px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+}
+.dashboard-message {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    padding: 20px;
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    
+}
+
+.setting-item {
+    display: flex;
+    gap: 20px;
+}
+.settings-button {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #bc3562;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+}
+  
+  
+.settings-button:hover {
+    background-color: #9d075c5f;
+}
+
+.subscription-container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    height:700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-subscription {
+    padding: 12px 24px;
+    background: var(--purple-light);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: auto;
+
+}
+
+.add-subscription:hover {
+    background: var(--purple-dark);
+}
+
+.subscription-empty-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+.subscription-empty-message {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Fire Sans', sans-serif;
+
+}
+.subscription-empty-body svg {
+    font-size: 4rem;
+     margin-bottom: 10px;
+}
+
+
+.close-button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-button:hover {
+    color: #C6426E;
+}
+.subscription-form-card{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90vw;
+    background: #b5345f;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.subscription-form-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Fire Sans', sans-serif;
+}
+
+.subscription-form-card input {
+    width: 100%;
+    padding: 16px;
+    color: #828282;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+}
+
+.subscription-form-card button[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    background: var(--purple-light);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.subscription-form-card button[type="submit"]:hover {
+    background: var(--purple-dark);
+}
+
+.bills-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.bill-item{
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.delete-button {
+    position: relative;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-bottom: 10px;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+    background: rgba(255, 0, 0, 0.3);
+    color: #ff4757;
+    transform: scale(1.1);
+}
+
+.edit-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: var(--text-light);
+}
+
+.edit-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #C6426E;
+}
+
+.bill-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bill-item h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bill-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+}

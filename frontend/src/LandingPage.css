@@ -272,7 +272,6 @@ ul li {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
     gap: 20px;
     padding: 24px;
     background: rgba(255, 255, 255, 0.1);
@@ -280,6 +279,8 @@ ul li {
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+    min-height: 470px;
 }
 
 .pricing-card button:hover {
@@ -366,4 +367,7 @@ ul li {
     list-style: none;
     display: inline;
 }
+
+
+
 
