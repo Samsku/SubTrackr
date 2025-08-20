@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+:root {
+    --purple-dark: #4b1e68;
+    --purple-light: #7f3fbf;
+    --text-light: #f9f9f9;
+    --bg-glass: rgba(255, 255, 255, 0.1);
+    --border-glass: rgba(255, 255, 255, 0.2);
+}
+
 .signup-container {
   display: flex;
   flex-direction: column;
@@ -12,7 +20,12 @@
   height: 100vh;
   overflow: hidden;
 }
-
+.authentication-page {
+    background: #642B73;
+    background: -webkit-linear-gradient(to right, #C6426E, #642B73);
+    background: linear-gradient(to right, #C6426E, #642B73);
+    height: 100%;
+}
 
 h1 {
   text-align: center;
@@ -104,4 +117,20 @@ button:hover {
   font-weight: bold;
   line-height: 1;
   pointer-events: none;
+}
+
+
+
+.Link-to a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.Link-to a:hover {
+  color: #C6426E;
+  border-bottom: 2px solid #C6426E;
 }
