@@ -1,7 +1,7 @@
 import SignUp from './components/SignUp.jsx'
 import SignIn from './components/SignIn.jsx'
 import './LandingPage.css'
-import  './Userpage.css'
+import './Userpage.css'
 import './Authentication.css'
 import LandingPage from './components/LandingPage.jsx'
 import Userpage from './components/UserPage.jsx'
@@ -14,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/signin" element={<SignIn />} />
-      <Route path="/login" element={<SignUp />} />
+      <Route path="/login" element={<Userpage />} />
     </Routes>
     </BrowserRouter>
 

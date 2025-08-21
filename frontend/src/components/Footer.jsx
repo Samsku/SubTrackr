@@ -1,6 +1,10 @@
+
+import "../footer.css";
+
 const Footer = () => {
+  // footer should be fixed at the bottom of the page (only when scrolled to bottom)
   return (
-    <footer className="footer">
+    <footer style={{position: "relative", bottom: "-65px"}} className="footer">
         <p>&copy; 2025 SubChck.All right reserved</p>
       <ul className="footer-links">
         <li><a href="#" className="logo">About</a></li>

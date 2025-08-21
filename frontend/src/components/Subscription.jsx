@@ -1,6 +1,7 @@
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import CloseIcon from '@mui/icons-material/Close';
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, } from 'react';
+import ReactDOM from 'react-dom';
 
 const  Subscriptions = () => {
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -80,33 +81,57 @@ const  Subscriptions = () => {
         
         <div className = "subscription-container">
             <button className ="add-subscription" onClick={() => setIsFormOpen(true)}>+ Add a Subscription</button>
-            {bills.length === 0 ? (
-                <div className = "subscription-empty-body">
-                    <Inventory2OutlinedIcon />
-                    <div className = "subscription-empty-message">You don't have any subscriptions yet.</div>
-                </div>
-            ) : (
-                <div className="bills-list">
-                    {bills.map(bill => (
-                        //to impleement security message to delete subs
-                        <div key={bill._id} className="bill-item">
-                            <button className="delete-button" onClick={() => deleteBill(bill._id)}><CloseIcon/></button>
-                            <h3>{bill.description}</h3>
-                            <p>Reminder: {new Date(bill.remindertime).toLocaleDateString()}</p>
-                            <button className = "edit-button">Edit</button>
-                        </div>
-                    ))}
-                </div>
-            )}
-            {isFormOpen &&(
-                    <form className="subscription-form-card" onSubmit={handleSubmit}>
-                        <h2 className = "subscription-form-title">Add a new subscription</h2>
-                        <button className ="close-button" onClick={()=>setIsFormOpen(false)}><CloseIcon /></button>
-                        <input type="text" name="description" placeholder="Description" required onChange={handleChange} value={windowForm.description}/>
-                        <input type="date" name="reminder" placeholder="Reminder" required onChange={handleChange} value={windowForm.reminder}/>
-                        <button type="submit">Submit</button>
-                    </form>
-            )}
+            {!isFormOpen && (
+  bills.length === 0 ? (
+    <div className="subscription-empty-body">
+        <Inventory2OutlinedIcon />
+        <div className="subscription-empty-message">You don't have any subscriptions yet.</div>
+    </div>
+  ) : (
+    <div className="bills-list">
+        {bills.map(bill => (
+            <div key={bill._id} className="bill-item">
+                <button className="delete-button" onClick={() => deleteBill(bill._id)}><CloseIcon/></button>
+                <h3>{bill.description}</h3>
+                <p>Reminder: {new Date(bill.remindertime).toLocaleDateString()}</p>
+                <button className="edit-button">Edit</button>
+            </div>
+        ))}
+    </div>
+  )
+)}
+
+            {isFormOpen &&
+  ReactDOM.createPortal(
+    <div className="modal-root">
+      <form className="subscription-form-card" onSubmit={handleSubmit}>
+          <h2 className="subscription-form-title">Add a new subscription</h2>
+          <button className="close-button" type="button" onClick={()=>setIsFormOpen(false)}>
+            <CloseIcon />
+          </button>
+          <input 
+            type="text" 
+            name="description" 
+            placeholder="Description" 
+            required 
+            onChange={handleChange} 
+            value={windowForm.description}
+          />
+          <input 
+            type="date" 
+            name="reminder" 
+            placeholder="Reminder" 
+            required 
+            onChange={handleChange} 
+            value={windowForm.reminder}
+          />
+          <button type="submit">Submit</button>
+      </form>
+    </div>,
+    document.body
+  )
+}
+
         </div>
     );
 };
