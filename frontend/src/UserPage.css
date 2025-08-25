@@ -306,7 +306,10 @@ main {
     box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.12);
 }
 
-
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
+  cursor: pointer;
+}
 
 .subscription-form-card button[type="submit"] {
     width: 100%;

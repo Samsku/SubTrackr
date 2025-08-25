@@ -117,6 +117,7 @@ const  Subscriptions = () => {
             required 
             onChange={handleChange} 
             value={windowForm.reminder}
+            className="date-input"
           />
           <button type="submit">Submit</button>
       </form>
