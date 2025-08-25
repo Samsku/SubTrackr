@@ -2,6 +2,7 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import CloseIcon from '@mui/icons-material/Close';
 import React,{useState, useEffect, } from 'react';
 import ReactDOM from 'react-dom';
+import { getAuthHeaders } from '../utils/auth';
 
 const  Subscriptions = () => {
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -26,11 +27,7 @@ const  Subscriptions = () => {
       try {
           const response = await fetch('http://localhost:3000/bill', {
               method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-                  //temporary token for used for manual testing 
-                  'Authorization': 'Bearer [TOKEN]'
-              },
+              headers: getAuthHeaders(),
               body: JSON.stringify({
                   description: formData.description,
                   remindertime: new Date(formData.reminder).toISOString()
@@ -47,12 +44,10 @@ const  Subscriptions = () => {
   const fetchBills = async () => {
       try {
           const response = await fetch('http://localhost:3000/bill/me', {
-              headers: {
-                  'Authorization': 'Bearer [TOKEN]'
-              }
+              headers: getAuthHeaders()
           });
           const data = await response.json();
-          setBills(data);
+          setBills(Array.isArray(data) ? data : []);
       } catch (error) {
           console.error('Error fetching bills:', error);
       }
@@ -66,9 +61,7 @@ const  Subscriptions = () => {
     try{
         await fetch(`http://localhost:3000/bill/${billId}`, {
             method: 'DELETE',
-            headers: {
-                'Authorization': 'Bearer [TOKEN]'
-            }
+            headers: getAuthHeaders()
         });
         setBills(bills.filter(bill => bill._id !== billId));
     }catch(error){

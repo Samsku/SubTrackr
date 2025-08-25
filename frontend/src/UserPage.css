@@ -94,7 +94,12 @@ ul li {
     list-style: none;
     display: inline;
 }
-
+.logout-button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+  }
 main {
     padding-top: 110px;
     padding-left: 40px;
@@ -421,4 +426,6 @@ main {
     font-weight: 600;
     font-family: 'Ubuntu', sans-serif;
 }
+
+
 
