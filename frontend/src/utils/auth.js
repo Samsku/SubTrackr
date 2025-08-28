@@ -24,3 +24,8 @@ export const isAuthenticated = () => {
   const token = getAuthToken();
   return token !== null && token !== undefined;
 };
+
+export const getUser = () => {
+  const user = localStorage.getItem('user');
+  return user ? JSON.parse(user) : null;
+};

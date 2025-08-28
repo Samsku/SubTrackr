@@ -95,6 +95,27 @@ app.delete('/bill/:id', auth, async(req, res)=>{
   }
 })
 
+app.patch('/bill', auth, async(req,res)=>{
+  try{
+    const bill = await Bill.findOneAndUpdate({
+      _id: req.body.id,
+      owner: req.user._id
+    },
+    {
+      remindertime: req.body.remindertime
+    }, req.body, { new: true });
+
+    if (!bill) {
+      return res.status(404).send();
+    }
+
+    res.send(bill);
+  }catch(e){
+    res.status(400).send(e);
+  }
+
+})
+
 app.listen((port),()=>{
     console.log('hello from server')
 })

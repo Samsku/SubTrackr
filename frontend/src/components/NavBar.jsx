@@ -1,8 +1,9 @@
 import {Link, useNavigate} from 'react-router-dom';
-import { isAuthenticated, clearAuthData } from '../utils/auth';
+import { isAuthenticated, clearAuthData, getUser } from '../utils/auth';
 
 function NavBar() {
     const navigate = useNavigate();
+    const user = getUser();
     
     const handleLogout = () => {
         clearAuthData();
@@ -15,7 +16,7 @@ function NavBar() {
             <ul>
                 <li><a href="#" className="logo">Features</a></li>
                 {isAuthenticated() ? (
-                    <li><a onClick={handleLogout} className="logout">Logout</a></li>
+                    <a onClick={handleLogout} className="logo">{user.name}</a>
                 ) : (
                     <li><Link to="/login" className="logo">Sign Up</Link></li>
                 )}

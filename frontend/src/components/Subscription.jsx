@@ -7,7 +7,11 @@ import { getAuthHeaders } from '../utils/auth';
 const  Subscriptions = () => {
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [windowForm,setWindowForm] = useState({description:"", reminder:""});
+    const [isEditOpen, setIsEditOpen] = useState(false);
+    const [editForm, setEditForm] = useState({reminder:""});
+    const [billEdit, setBillEdit] = useState(null);
     const [bills, setBills] = useState([]); 
+
     const handleChange = (e) => {
       const { name, value } = e.target;
       setWindowForm(prev => ({
@@ -15,6 +19,14 @@ const  Subscriptions = () => {
           [name]: value
       }));
   };
+  const handleEditChange = (e) => {
+      const { name, value } = e.target;
+      setEditForm(prev => ({
+          ...prev,
+          [name]: value
+      }));
+  };
+  
 
   const handleSubmit = async (e) => {
       e.preventDefault();
@@ -23,6 +35,23 @@ const  Subscriptions = () => {
       setIsFormOpen(false);
       setWindowForm({description:"", reminder:""});
   };
+  const handleEditSubmit = async (e) => {
+      e.preventDefault();
+      await editBill(billEdit._id, {
+          reminderTime: new Date(editForm.reminder).toISOString()
+      });
+      await fetchBills();
+      setIsEditOpen(false);
+      setEditForm({reminder:""});
+  };
+  const openEditModal = (bill) => {
+        setBillEdit(bill);
+        setEditForm({
+            description: bill.description,
+            reminder: new Date(bill.remindertime).toISOString().split('T')[0] 
+        });
+        setIsEditOpen(true);
+    };
  const addSubscription = async (formData) => {
       try {
           const response = await fetch('http://localhost:3000/bill', {
@@ -68,7 +97,25 @@ const  Subscriptions = () => {
         console.error('Error deleting bill:', error);
     }
   }
+  
 
+  const editBill = async(billId, updatedData)=>{
+
+    try {
+        const response = await fetch(`http://localhost:3000/bill`, {
+            method: 'PATCH',
+            headers: getAuthHeaders(),
+            body: JSON.stringify({
+                id: billId,
+                remindertime: updatedData.reminderTime
+            })
+        });
+        const bill = await response.json();
+        console.log('Bill updated:', bill);
+    } catch (error) {
+        console.error('Error updating bill:', error);
+    }
+}
 
     return (
         
@@ -87,7 +134,7 @@ const  Subscriptions = () => {
                 <button className="delete-button" onClick={() => deleteBill(bill._id)}><CloseIcon/></button>
                 <h3>{bill.description}</h3>
                 <p>Reminder: {new Date(bill.remindertime).toLocaleDateString()}</p>
-                <button className="edit-button">Edit</button>
+                <button className="edit-button" onClick={() => openEditModal(bill)}>Edit</button>
             </div>
         ))}
     </div>
@@ -117,7 +164,6 @@ const  Subscriptions = () => {
             required 
             onChange={handleChange} 
             value={windowForm.reminder}
-            className="date-input"
           />
           <button type="submit">Submit</button>
       </form>
@@ -125,8 +171,29 @@ const  Subscriptions = () => {
     document.body
   )
 }
-
-        </div>
+            {isEditOpen &&
+    ReactDOM.createPortal(
+        <div className="modal-root">
+            <form className="subscription-form-card" onSubmit={handleEditSubmit}>
+                <h2 className="subscription-form-title">Edit Subscription</h2>
+                <button className="close-button" type="button" onClick={() => setIsEditOpen(false)}>
+                    <CloseIcon />
+                </button>
+                <input
+                    type="date"
+                    name="reminder"
+                    placeholder="Reminder"
+                    required
+                    onChange={handleEditChange}
+                    value={editForm.reminder}
+                />
+                <button type="submit">Submit</button>
+            </form>
+        </div>,
+        document.body
+    )
+}
+</div>
     );
 };
 
