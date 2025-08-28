@@ -1,8 +1,32 @@
 import React,{useState} from 'react';
 import Subscription from './Subscription';
+import Profile from './Profile';
+import PaymentMethods from './PaymentMethods';
+import Billing from './Billing';
+import Notifications from './Notifications';
 const Dashboard = () => {
-    const [subDashboard, setsubDashboard] = useState();
+
     const [activeModal, setActiveModal] = useState(null);
+
+    const handleOption = () => {
+        switch (activeOption) {
+            case "subscriptions":
+                setActiveModal("subscription");
+                break;
+            case "profile":
+                setActiveModal("profile");
+                break;
+            case "payment methods":
+                setActiveModal("payment");
+                break;
+            case "billing":
+                setActiveModal("billing");
+                break;
+            case "notifications":
+                setActiveModal("notifications");
+                break;
+        }
+    }
     const settings= [
         {name:"Subscriptions", modalId: "subscription"},
         {name:"Profile", modalId:"profile"},
@@ -20,7 +44,13 @@ const Dashboard = () => {
                     </div>
                 ))}
             </div>
-            <Subscription />
+            <div className="modal-container">
+                {activeModal === "subscription" && <Subscription />}
+                {activeModal === "profile" && <Profile />}
+                {activeModal === "payment" && <PaymentMethods />}
+                {activeModal === "billing" && <Billing />}
+                {activeModal === "notifications" && <Notifications />}
+            </div>
         </div>
     );
 };
