@@ -241,7 +241,7 @@ main {
     transform: translate(-50%, -50%);
     width: 420px;
     max-width: calc(100vw - 32px);
-    background: linear-gradient(180deg, rgba(10, 15, 20, 0.45), rgba(12, 18, 24, 0.22));
+    background: #000101; /*better contrast*/
     border-radius: var(--radius-lg);
     border: 1px solid var(--glass-02);
     box-shadow: var(--shadow-lg);
@@ -432,3 +432,14 @@ main {
 
 
 
+.profile-item {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
