@@ -44,9 +44,24 @@ const userSchema = new mongoose.Schema({
       required:true
       }
     
-    }]
+    }],
 
-    })
+    stripeCustomerId:{
+      type:String,
+      index:true
+    },
+    subscriptionPlan: {
+      type:String,
+      enum: ['free', 'premium'],
+      default: 'free'
+    },
+    lastLogin: {
+        type: Date,
+        default: Date.now
+    }
+    }, {
+    timestamps: true
+})
 
 userSchema.methods.toJSON =  function(){
      const user = this 

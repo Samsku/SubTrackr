@@ -1,0 +1,68 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.45); /* dark backdrop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000; /* higher than everything else */
+}
+
+.modal-content {
+    width: 420px;
+    max-width: calc(100vw - 32px);
+    background: #000101;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #cbd6df; /* Adjusted for dark background */
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}
+
+.modal-actions button {
+    width: 100%; /* Make buttons take full width of their container */
+    max-width: 150px; /* Limit individual button width */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; /* Larger border-radius */
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-button.confirm-button {
+  background-color: #673AB7; /* Example purple */
+}
+
+.modal-button.confirm-button:hover {
+  background-color: #5E35B1; /* Darker purple on hover */
+}
+
+.modal-button.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.modal-button.cancel-button:hover {
+  background-color: #da190b;
+}

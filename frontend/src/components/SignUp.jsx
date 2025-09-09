@@ -1,10 +1,12 @@
 import '../Authentication.css';
 import {Link} from 'react-router-dom';
 import {useState} from 'react';
-
+import { setAuthData } from '../utils/auth';
+import { useUser } from '../utils/UserContext';
 
 
 function SignUp() {
+    const { setUser } = useUser();
     const [formatData, setFormatData]= useState({
         name: '',
         email: '',
@@ -33,10 +35,11 @@ function SignUp() {
             });
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('token', data.token);
+                setAuthData(data.token, data.user); // Use setAuthData to store token and user
+                setUser(data.user);
                 //work on a friendly message when registration is successful
                 setSendMessage('Registration successful!');
-                setFormatData({name: '',email: '',password: ''});
+                setFormatData({name: '',email: '', password: ''});
             } else {
                 console.error('Registration failed:', data);
             }

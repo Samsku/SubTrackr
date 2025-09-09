@@ -2,8 +2,10 @@ import '../Authentication.css';
 import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import { setAuthData } from '../utils/auth';
+import { useUser } from '../utils/UserContext';
 
 function SignIn() {
+    const { setUser } = useUser();
     const navigate = useNavigate();
     const [credentials, setCredentials]= useState({
         email: '',
@@ -32,6 +34,7 @@ function SignIn() {
             const data = await response.json();
             if (response.ok) {
                 setAuthData(data.token, data.user);
+                setUser(data.user);
                 alert('Login successful!');
                 navigate('/dashboard');
             } else {

@@ -7,6 +7,18 @@ const billschema = new mongoose.Schema({
         required:true,
         trim:true
     },
+    amount: {
+        type: Number,
+        required: true,
+        min: 0 
+    },
+    currency: {
+        type: String,
+        required: true,
+        trim: true,
+        uppercase: true,
+        enum: ['USD', 'EUR', 'GBP', 'JPY', 'CAD', 'AUD', 'CHF', 'CNY', 'SEK', 'NZD'] // Common currencies
+    },
     remindertime:{
         type: Date, 
         required: true

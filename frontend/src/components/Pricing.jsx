@@ -1,8 +1,31 @@
+import { useState, useEffect } from 'react';
 import CheckIcon from '@mui/icons-material/Check';
+import { isAuthenticated } from '../utils/auth';
 import CloseIcon from '@mui/icons-material/Close';
 import '../LandingPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function Pricing () {
+    const [isLogged, setIsLogged] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkAuth = () => {
+            const isAuth = isAuthenticated();
+            setIsLogged(isAuth);
+        };
+        checkAuth();
+    }, []);
+
+    const handleSubscription = (e) => {
+        if (!isLogged) {
+            e.preventDefault();
+            alert('Please log in to subscribe.');
+        } else {
+            navigate('/dashboard');
+        }
+    };
+
     const plans = [
         {
             name: "Basic",
@@ -60,7 +83,11 @@ function Pricing () {
                                 </li>
                             ))}
                         </ul>
-                        <button>Get Started</button>
+                        {plan.name === 'Premium' ? (
+                            <button onClick={handleSubscription}>Subscribe</button>
+                        ) : (
+                            <button>Get Started</button>
+                        )}
                     </div>
                 ))}
             </div>
